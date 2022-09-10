@@ -1,0 +1,81 @@
+@import "../../../styles/index.module.scss";
+
+.Header {
+  background-position: fixed;
+  background-size: cover;
+  background-image: url("../../../public/images/HeaderBG.jpg");
+  padding: 5rem 0;
+  &__content {
+    width: min(95%, 1250px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.8fr 0.2fr;
+    grid-template-areas:
+      " title image"
+      " button image";
+    @media (max-width: 600px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 0.2fr;
+      grid-template-areas:
+        " title"
+        " button";
+    }
+  }
+  &__title {
+    grid-area: title;
+    font-size: 5rem;
+    padding-top: 5rem;
+    margin-left: 1rem;
+    @media (max-width: 600px) {
+      text-align: center;
+    }
+    &--intro {
+      font-size: $fs-large;
+      @media (max-width: 600px) {
+        font-size: $fs-medium;
+      }
+      span {
+        color: var(--tertiary-text-color);
+      }
+    }
+    &--main {
+      font-size: $fs-huge;
+      margin-top: 1rem;
+      color: var(--primary-text-color);
+      letter-spacing: 4px;
+      @media (max-width: 600px) {
+        font-size: $fs-XXL;
+      }
+    }
+    &--describe {
+      font-size: $fs-extra;
+      color: var(--primary-text-color);
+      letter-spacing: 3px;
+      @media (max-width: 600px) {
+        font-size: $fs-large;
+      }
+      span {
+        color: var(--tertiary-text-color);
+      }
+    }
+    &--offer {
+      font-size: $fs-large;
+
+      @media (max-width: 600px) {
+        font-size: $fs-medium;
+      }
+    }
+  }
+  &__button {
+    grid-area: button;
+    @media (max-width: 600px) {
+      text-align: center;
+    }
+    button {
+      color: white;
+      font-size: $fs-medium;
+    }
+  }
+}
