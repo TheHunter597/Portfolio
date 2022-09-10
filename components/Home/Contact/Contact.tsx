@@ -19,7 +19,7 @@ const contactsData = [
   {
     name: "LinkedIn",
     icon: <AiFillLinkedin />,
-    url: "",
+    url: "https://www.linkedin.com/in/mohamed-hossam-3aaa8224b/",
   },
   {
     name: "WhatsApp",

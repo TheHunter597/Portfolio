@@ -7,6 +7,9 @@
     width: 90%;
     height: 35rem;
   }
+  &:hover &__content {
+    transform: rotateY(180deg);
+  }
   margin-inline: auto;
   cursor: pointer;
   height: 40rem;
@@ -21,9 +24,6 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    &:hover {
-      transform: rotateY(180deg);
-    }
 
     div {
       position: absolute;
