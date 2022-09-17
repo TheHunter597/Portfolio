@@ -19,7 +19,7 @@ const contactsData = [
   {
     name: "LinkedIn",
     icon: <AiFillLinkedin />,
-    url: "",
+    url: "https://www.linkedin.com/in/mohamed-hossam-3aaa8224b/",
   },
   {
     name: "WhatsApp",
@@ -126,7 +126,7 @@ function About() {
     );
   });
   return (
-    <div className={styles["contact"]} id="Contact">
+    <section className={styles["contact"]} id="Contact">
       <div className={styles["contact__content"]}>
         <nav className={styles["contact__nav"]}>
           <ul>
@@ -184,7 +184,7 @@ function About() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

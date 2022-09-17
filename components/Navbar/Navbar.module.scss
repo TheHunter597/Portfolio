@@ -2,6 +2,7 @@
 .Navbar {
   height: 8rem;
   background-color: var(--nav-bg-color);
+  color: var(--navbar-text-color);
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -22,7 +23,6 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    color: var(--navbar-text-color);
     font-size: $fs-large;
     gap: 4rem;
     li {
@@ -39,7 +39,12 @@
     top: 0;
     width: 100%;
     z-index: 2;
-    background-color: rgba(white, 0.5);
+    &--light {
+      background-color: rgba(white, 0.6);
+    }
+    &--dark {
+      background-color: rgba(var(--nav-bg-color), 1);
+    }
   }
   &__phone {
     svg {
@@ -48,8 +53,8 @@
     ul {
       position: absolute;
       top: 120%;
-      height: 45vh;
-      background-color: white;
+      height: 60vh;
+      background-color: var(--nav-bg-color);
       border-radius: 10px;
       box-shadow: 0 20px 30px rgba(black, 0.2);
       padding: 2rem;
@@ -66,6 +71,36 @@
       z-index: 10;
     }
   }
+  &__darkModeToggler {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    font-size: 3rem;
+    position: relative;
+    &--dark {
+      &::after {
+        animation: darkmodeAnimation 0.7s ease-out;
+        left: 0;
+      }
+    }
+    &--light {
+      &::after {
+        animation: lightmodeAnimation 0.7s ease-out;
+        right: 0%;
+      }
+    }
+    &::after {
+      content: "";
+      width: 50%;
+      height: 120%;
+      color: var(--element-tertiary-bg-color);
+      position: absolute;
+      top: -10%;
+      background-color: var(--tertiary-text-color);
+      z-index: 1;
+      border-radius: 100px;
+    }
+  }
 }
 
 @keyframes phoneNavAnimation {
@@ -75,6 +110,23 @@
   }
   100% {
     opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes darkmodeAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes lightmodeAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
     transform: translateX(0);
   }
 }
