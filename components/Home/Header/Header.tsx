@@ -3,14 +3,22 @@ import { useContext } from "react";
 import context from "../../../context/context";
 import { useRouter } from "next/router";
 function Header() {
-  const contextData = useContext(context) as { fixNavbar: boolean };
-  const { fixNavbar } = contextData;
+  const contextData = useContext(context) as {
+    fixNavbar: boolean;
+    darkMode: boolean;
+    setDarkMode: Function;
+  };
+  const { fixNavbar, darkMode } = contextData;
   const router = useRouter();
   return (
-    <div
-      className={styles["Header"]}
+    <header
+      className={`${styles["Header"]} ${
+        darkMode ? styles["Header--dark"] : styles["Header--light"]
+      }`}
       id="Header"
-      style={fixNavbar ? { marginTop: "8rem" } : { marginTop: "0rem" }}
+      style={{
+        marginTop: fixNavbar ? "8rem" : "0rem",
+      }}
     >
       <div className={styles["Header__content"]}>
         <div className={styles["Header__title"]}>
@@ -34,7 +42,7 @@ function Header() {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
