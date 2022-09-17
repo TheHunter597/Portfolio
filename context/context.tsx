@@ -9,6 +9,7 @@ const context = createContext({});
 export function ContextProvider(props: props) {
   const [fixNavbar, setFixNavbar] = useState(false);
   const [phoneUser, setPhoneUser] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     window.scrollY > 200 ? setFixNavbar(true) : setFixNavbar(false);
     window.innerWidth < 600 ? setPhoneUser(true) : setPhoneUser(false);
@@ -28,7 +29,7 @@ export function ContextProvider(props: props) {
     };
   }, []);
   return (
-    <context.Provider value={{ fixNavbar, phoneUser }}>
+    <context.Provider value={{ fixNavbar, phoneUser, darkMode, setDarkMode }}>
       {props.children}
     </context.Provider>
   );

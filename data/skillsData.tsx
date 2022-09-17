@@ -13,8 +13,7 @@ export const skills = [
   {
     name: "HTML",
     logo: HTMLLogo,
-    describe:
-      "Using HTML to construct a semetic website thats properly structured ",
+    describe: "Write semantic HTML that is well structured ",
   },
   {
     name: "CSS",
@@ -37,13 +36,13 @@ export const skills = [
     name: "React",
     logo: ReactLogo,
     describe:
-      "Built tens of projects varying from small to large and what I say is what a great library",
+      "Built tens of projects varying from small to large the library is truely amazing ",
   },
   {
     name: "Typescript",
     logo: Typescript,
     describe:
-      "Uses it to avoid any error related to type of data and specially for autocompelete",
+      "Uses it to avoid any error related to the type of data and specially for autocompelete",
   },
   {
     name: "Next Js",

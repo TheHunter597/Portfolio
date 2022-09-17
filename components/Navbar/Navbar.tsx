@@ -4,12 +4,15 @@ import context from "../../context/context";
 import styles from "./Navbar.module.scss";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsSunFill, BsMoonFill } from "react-icons/bs";
 function Navbar() {
   const contextData = useContext(context) as {
     fixNavbar: boolean;
     phoneUser: boolean;
+    darkMode: boolean;
+    setDarkMode: Function;
   };
-  const { fixNavbar, phoneUser } = contextData;
+  const { fixNavbar, phoneUser, darkMode, setDarkMode } = contextData;
   const [openNav, setOpenNav] = useState(false);
 
   const sections = ["Skills", "Projects", "Contact"];
@@ -23,7 +26,11 @@ function Navbar() {
   return (
     <nav
       className={`${styles["Navbar"]} ${
-        fixNavbar ? styles["Navbar--fixed"] : ""
+        fixNavbar
+          ? darkMode
+            ? `${styles["Navbar--fixed--dark"]} ${styles["Navbar--fixed"]}`
+            : `${styles["Navbar--fixed--light"]} ${styles["Navbar--fixed"]}`
+          : ""
       }`}
     >
       {!phoneUser ? (
@@ -36,6 +43,17 @@ function Navbar() {
             <Link href="/">Home</Link>
           </li>
           {links}
+          <li
+            onClick={() => setDarkMode((prev: boolean) => !prev)}
+            className={`${styles["Navbar__darkModeToggler"]}  ${
+              darkMode
+                ? styles["Navbar__darkModeToggler--dark"]
+                : styles["Navbar__darkModeToggler--light"]
+            }`}
+          >
+            <BsSunFill />
+            <BsMoonFill />
+          </li>
         </ul>
       ) : (
         <div className={styles["Navbar__phone"]}>
@@ -56,6 +74,17 @@ function Navbar() {
                 <Link href="/">Home</Link>
               </li>
               {links}
+              <li
+                onClick={() => setDarkMode((prev: boolean) => !prev)}
+                className={`${styles["Navbar__darkModeToggler"]}  ${
+                  darkMode
+                    ? styles["Navbar__darkModeToggler--dark"]
+                    : styles["Navbar__darkModeToggler--light"]
+                }`}
+              >
+                <BsSunFill />
+                <BsMoonFill />
+              </li>
             </ul>
           ) : (
             ""

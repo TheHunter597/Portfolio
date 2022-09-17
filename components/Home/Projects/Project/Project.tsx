@@ -2,8 +2,8 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Project.module.scss";
-import { useContext } from "react";
-import context from "../../../context/context";
+import { useContext, useEffect, useRef, useState } from "react";
+import context from "../../../../context/context";
 interface props {
   data: {
     name: string;
@@ -12,16 +12,43 @@ interface props {
     url: string;
     special?: string;
   };
+  index: number;
 }
 
 function Project(props: props) {
-  const { data } = props;
+  const [active, setActive] = useState(false);
+  const { data, index } = props;
   const { name, description, mainImage, url, special } = data;
   const contextData = useContext(context) as { phoneUser: boolean };
   const { phoneUser } = contextData;
   const router = useRouter();
+  const element = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const rect = element.current!.getBoundingClientRect();
+    window.addEventListener("scroll", () => {
+      window.scrollY + 750 > rect.top && window.scrollY < rect.bottom
+        ? setActive(true)
+        : setActive(false);
+    });
+    return () => {
+      window.removeEventListener("scroll", () => {
+        window.scrollY + 200 > rect.top && window.scrollY < rect.bottom
+          ? setActive(true)
+          : setActive(false);
+      });
+    };
+  }, []);
   return (
-    <div className={styles["Project"]}>
+    <article
+      className={`${styles["Project"]}  ${
+        active
+          ? index % 2
+            ? styles["Project--active--left"]
+            : styles["Project--active--right"]
+          : ""
+      }`}
+      ref={element}
+    >
       <div className={styles["Project__content"]}>
         {special && !phoneUser ? (
           <div className={styles["Project__special"]}>{special}</div>
@@ -47,7 +74,7 @@ function Project(props: props) {
           <button onClick={() => router.push(`/${name}`)}>More Info</button>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

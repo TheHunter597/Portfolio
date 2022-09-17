@@ -126,7 +126,7 @@ function About() {
     );
   });
   return (
-    <div className={styles["contact"]} id="Contact">
+    <section className={styles["contact"]} id="Contact">
       <div className={styles["contact__content"]}>
         <nav className={styles["contact__nav"]}>
           <ul>
@@ -184,7 +184,7 @@ function About() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -26,6 +26,8 @@ $very-dark-blue-dark-mode: hsl(207, 26%, 17%);
 $very-dark-blue-light-mode: hsl(200, 15%, 8%);
 $dark-gray: hsl(0, 0%, 52%);
 
+$white: white;
+
 .root {
   --nav-bg-color: #{$neutral-light-gray};
   --bg-color: #{$neutral-light-gray};
@@ -35,17 +37,24 @@ $dark-gray: hsl(0, 0%, 52%);
   --tertiary-text-color: #{$primary-red};
   --element-primary-bg-color: #{$neutral-pale-red};
   --element-secondary-bg-color: #{$primary-blue};
+  --element-tertiary-bg-color: #{$white};
   --navbar-text-color: #{$charcoal--500};
+  transition: all 0.5s;
 }
 
-// .dark {
-//   --page-bg-color: #{$primary-dark};
-//   --primary-text-color: white;
-//   --secondary-text-color: #{$primary-red};
-//   --tertiary-text-color: #1b9878;
-//   animation: test 0.4s forwards;
-//   scroll-behavior: smooth;
-// }
+.dark {
+  --nav-bg-color: #{$secondary-dark};
+  --bg-color: #{$primary-dark};
+  --about-bg-color: #{$neutral-dark-blue};
+  --primary-text-color: #{white};
+  --secondary-text-color: #{white};
+  --tertiary-text-color: #{$primary-red};
+  --element-primary-bg-color: #{$charcoal--800};
+  --element-secondary-bg-color: #{$very-dark-blue-light-mode};
+  --element-tertiary-bg-color: #{$very-dark-blue-dark-mode};
+  --navbar-text-color: #{white};
+  transition: all 0.5s;
+}
 
 .container {
   background-color: rgba(#f9fafa, 0.7);
