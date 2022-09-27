@@ -67,7 +67,7 @@ export const projectsData = [
       "Api calls are done in GraphQl",
       "Currently only admin(me) can create and modify posts",
       "Currently working on shifting state managment from context api to redux (DONE)",
-      "Next to add the ability for users to create posts that should be accepted bt admin first (In progress)",
+      "Next to add the ability for users to create,edit and delete comments  (Done)",
     ],
   },
   {

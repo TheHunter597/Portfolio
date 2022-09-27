@@ -8,7 +8,6 @@
   padding-bottom: 6rem;
   background-color: var(--element-primary-bg-color);
   position: relative;
-  opacity: 0;
   img {
     border-radius: 10px 10px 0 0;
   }
@@ -77,14 +76,14 @@
     transform: translateY(-65%) translateX(-40%) rotate(-12deg);
     animation: special 3s ease-out infinite;
   }
-  &--active {
-    &--left {
-      animation: projectAnimationLeft 1.5s ease-out forwards;
-    }
-    &--right {
-      animation: projectAnimationRight 1.5s ease-out forwards;
-    }
-  }
+  // &--active {
+  //   &--left {
+  //     animation: projectAnimationLeft 1.5s ease-out forwards;
+  //   }
+  //   &--right {
+  //     animation: projectAnimationRight 1.5s ease-out forwards;
+  //   }
+  // }
 }
 
 @keyframes special {
@@ -99,24 +98,24 @@
   }
 }
 
-@keyframes projectAnimationLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+// @keyframes projectAnimationLeft {
+//   0% {
+//     transform: translateX(-100%);
+//     opacity: 0.5;
+//   }
+//   100% {
+//     transform: translateX(0);
+//     opacity: 1;
+//   }
+// }
 
-@keyframes projectAnimationRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+// @keyframes projectAnimationRight {
+//   0% {
+//     transform: translateX(100%);
+//     opacity: 0.5;
+//   }
+//   100% {
+//     transform: translateX(0);
+//     opacity: 1;
+//   }
+// }

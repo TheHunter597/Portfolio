@@ -22,22 +22,22 @@ function Project(props: props) {
   const contextData = useContext(context) as { phoneUser: boolean };
   const { phoneUser } = contextData;
   const router = useRouter();
-  const element = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const rect = element.current!.getBoundingClientRect();
-    window.addEventListener("scroll", () => {
-      window.scrollY + 750 > rect.top && window.scrollY < rect.bottom
-        ? setActive(true)
-        : setActive(false);
-    });
-    return () => {
-      window.removeEventListener("scroll", () => {
-        window.scrollY + 200 > rect.top && window.scrollY < rect.bottom
-          ? setActive(true)
-          : setActive(false);
-      });
-    };
-  }, []);
+  // const element = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   const rect = element.current!.getBoundingClientRect();
+  //   window.addEventListener("scroll", () => {
+  //     window.scrollY + 750 > rect.top && window.scrollY < rect.bottom
+  //       ? setActive(true)
+  //       : setActive(false);
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", () => {
+  //       window.scrollY + 200 > rect.top && window.scrollY < rect.bottom
+  //         ? setActive(true)
+  //         : setActive(false);
+  //     });
+  //   };
+  // }, []);
   return (
     <article
       className={`${styles["Project"]}  ${
@@ -47,7 +47,6 @@ function Project(props: props) {
             : styles["Project--active--right"]
           : ""
       }`}
-      ref={element}
     >
       <div className={styles["Project__content"]}>
         {special && !phoneUser ? (

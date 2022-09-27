@@ -61,7 +61,7 @@ $white: white;
 }
 
 .animatedButton {
-  background-color: var(--tertiary-text-color);
+  background-color: #0077b5;
   padding: 1rem 2rem;
   border: none;
   border-radius: 20px;
@@ -85,7 +85,7 @@ $white: white;
     height: 100%;
     border-radius: 20px;
     color: var(--primary-text-color);
-    background-color: var(--tertiary-text-color);
+    background-color: #0077b5;
     font-size: $fs-small;
     display: inline-block;
     z-index: -1;

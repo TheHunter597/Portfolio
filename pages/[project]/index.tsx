@@ -1,9 +1,29 @@
 import Image, { StaticImageData } from "next/image";
 import styles from "./ProjectPage.module.scss";
 import { projectsData } from "../../data/projectsData";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import context from "../../context/context";
 import Head from "next/head";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+const infoListAnimation = {
+  initial: {
+    x: "100%",
+    opacity: 0,
+  },
+  original: (i: number) => {
+    return {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.3,
+        duration: 0.7,
+        type: "spring",
+        stiffness: 70,
+      },
+    };
+  },
+};
 
 interface props {
   projectData: {
@@ -24,11 +44,16 @@ function ProjectPage(props: props) {
     phoneUser: boolean;
   };
   const { fixNavbar, phoneUser } = contextData;
-  const detailsInfo = details.map((info) => {
+  const [ref, inView] = useInView();
+  const detailsInfo = details.map((info, i) => {
     const firstWord = info.split(" ")[0];
     return (
-      <li
+      <motion.li
+        variants={infoListAnimation}
+        initial="initial"
+        animate={inView ? "original" : ""}
         key={info}
+        custom={i}
         className={
           firstWord === "Currently" || firstWord === "Next"
             ? styles["ProjectPage__details--active"]
@@ -36,7 +61,7 @@ function ProjectPage(props: props) {
         }
       >
         {info}
-      </li>
+      </motion.li>
     );
   });
   const gallery = images.map((image, index) => {
@@ -67,7 +92,9 @@ function ProjectPage(props: props) {
           <h3>{name}</h3>
           <p>{description}</p>
         </div>
-        <ul className={styles["ProjectPage__details"]}>{detailsInfo}</ul>
+        <ul className={styles["ProjectPage__details"]} ref={ref}>
+          {detailsInfo}
+        </ul>
         <h3 className={styles["ProjectPage__galleryHeader"]}>Gallery</h3>
         <div className={styles["ProjectPage__gallery"]}> {gallery}</div>
       </div>
