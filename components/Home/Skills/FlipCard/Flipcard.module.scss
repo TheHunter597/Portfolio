@@ -1,13 +1,10 @@
-@import "../../../styles/index.module.scss";
+@import "../../../../styles/index.module.scss";
 
 .flipCard {
   background-color: transparent;
   width: 70%;
   @media (max-width: 600px) {
     width: 90%;
-  }
-  &:hover &__content {
-    transform: rotateY(180deg);
   }
   &:hover &__content {
     transform: rotateY(180deg);

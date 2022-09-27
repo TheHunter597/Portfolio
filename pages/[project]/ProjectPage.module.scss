@@ -6,6 +6,7 @@
     "image"
     "content";
   padding-top: 5rem;
+  overflow-x: hidden;
   &__image {
     margin-inline: auto;
     text-align: center;
@@ -54,6 +55,7 @@
     grid-area: galleryHeader;
     text-align: center;
     font-size: $fs-huge;
+    color: var(--primary-text-color);
   }
   &__gallery {
     grid-area: gallery;

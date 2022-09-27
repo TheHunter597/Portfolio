@@ -5,15 +5,17 @@
   background-size: cover;
   background-image: url("../../../public/images/HeaderBG.jpg");
   padding: 5rem 0;
+  position: relative;
   &__content {
     width: min(95%, 1250px);
     margin-inline: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.8fr 0.2fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.8fr;
     grid-template-areas:
-      " title image"
-      " button image";
+      " title "
+      " button ";
+    text-align: center;
     @media (max-width: 600px) {
       display: grid;
       grid-template-columns: 1fr;
@@ -35,9 +37,6 @@
       color: var(--primary-text-color);
       @media (max-width: 600px) {
         font-size: $fs-medium;
-      }
-      span {
-        color: var(--tertiary-text-color);
       }
     }
     &--main {
@@ -84,4 +83,30 @@
   &--light {
     background-image: url("../../../public/images/HeaderBG.jpg");
   }
+  &__cover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+    overflow-x: hidden;
+    div {
+      height: 15rem;
+      width: 100%;
+      background-color: #aa336a;
+      border-radius: 0%;
+      border-radius: 0 70px 70px 0;
+    }
+  }
+}
+
+.fixedLinekedIn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  font-size: 5rem;
+  color: #0077b5;
+  background-color: transparent;
+  z-index: 5;
+  cursor: pointer;
 }

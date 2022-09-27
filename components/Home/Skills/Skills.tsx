@@ -1,8 +1,8 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import context from "../../../context/context";
 import styles from "./Skills.module.scss";
 import { skills } from "../../../data/skillsData";
-import FlipCard from "../FlipCard/FlipCard";
+import FlipCard from "./FlipCard/FlipCard";
 function Skills() {
   const [showArrow, setShowArrow] = useState(false);
   const skillContainer = useRef<HTMLDivElement>(null);

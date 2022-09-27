@@ -11,7 +11,9 @@
   "dependencies": {
     "email-validator": "^2.0.4",
     "firebase": "^9.9.3",
+    "framer-motion": "^7.4.0",
     "graphql-request": "^4.3.0",
+    "gsap": "^3.11.1",
     "mongodb": "^4.9.0",
     "nanoid": "^4.0.0",
     "next": "12.2.5",
@@ -20,6 +22,7 @@
     "react-animation-on-scroll": "^5.1.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
+    "react-intersection-observer": "^9.4.0",
     "react-spinners": "^0.13.4",
     "sass": "^1.54.5"
   },
