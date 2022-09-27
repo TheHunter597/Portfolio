@@ -76,7 +76,7 @@ export const projectsData = [
       "A challenge that was posted on frontend mentor to replicate the website as much as you can the website is a model for a landing page for more info click more info",
     mainImage: landingMain,
     images: [landingMain, langinSection1, langinSection2, langinSection3],
-    url: "https://landing-page-boofyaysd-thehunter597.vercel.app/",
+    url: "https://landing-page-thehunter597.vercel.app/",
     details: [
       "It was a chanllenge on front end mentor",
       "the chanllenge has intermediate diffculty",
