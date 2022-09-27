@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import styles from "./ProjectPage.module.scss";
 import { projectsData } from "../../data/projectsData";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import context from "../../context/context";
 import Head from "next/head";
 import { motion } from "framer-motion";
